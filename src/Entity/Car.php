@@ -202,4 +202,9 @@ class Car
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getName() . '_' . $this->getModel();
+    }
 }

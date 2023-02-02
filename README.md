@@ -33,7 +33,12 @@ Lorsque vous travaillez sur une branche il faut :
     git pull origin develop
     git push -u origin nom_de_la_branche_de_travail
 
-
+Pour déployer l'application :
+   Prérequis machine :
+   PHP & Composer - https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04
+   NodeJS - https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04#option-2-installing-node-js-with-apt-using-a-nodesource-ppa (bien suivre l'option 2, l'option 1 n'est plus valable pour Ubuntu)
+   Yarn - https://linuxhint.com/install_yarn_ubuntu/
+   (Parallèle)MySQL - https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04
 
 
 

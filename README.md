@@ -2,6 +2,7 @@
 - composer install
 - yarn install
 - Modifier le  fichier env avec les identifiants mysql 
+Toute les commandes comportant symfony peuvent être remplacés par php bin/console
 - symfony console d:d:c
 - symfony console d:m:m
 

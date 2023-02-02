@@ -2,7 +2,7 @@
 - composer install
 - yarn install
 - Modifier le  fichier env avec les identifiants mysql 
-- symfony console d:d:d
+- symfony console d:d:c
 - symfony console d:m:m
 
 # Lancer le serveur

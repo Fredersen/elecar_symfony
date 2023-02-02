@@ -62,6 +62,7 @@
     <!--==================== MAIN ====================-->
     <main class="main">
         <!--==================== HOME ====================-->
+    {% for car in header %}
         <section class="home section" id="home">
             <div class="shape shape__big"></div>
             <div class="shape shape__small"></div>
@@ -69,11 +70,11 @@
             <div class="home__container container grid">
                 <div class="home__data">
                     <h1 class="home__title">
-                        Choose The Best Car
+                        {{ car.header.title }}
                     </h1>
                     <!-- Ceci est un test -->
                     <h2 class="home__subtitle">
-                        Porsche Mission E
+                        {{ car.brand }} {{ car.model }}
                     </h2>
 
                     <h3 class="home__elec">
@@ -81,22 +82,22 @@
                     </h3>
                 </div>
 
-                <img src="{{ asset('build/images/home.png') }}" alt="" class="home__img">
+                <img src="{{ asset('build/images/' ~ car.frontImage) }}" alt="" class="home__img">
 
                 <div class="home__car">
                     <div class="home__car-data">
                         <div class="home__car-icon">
                             <i class="ri-temp-cold-line"></i>
                         </div>
-                        <h2 class="home__car-number">24°</h2>
-                        <h3 class="home__car-name">TEMPERATURE</h3>
+                        <h2 class="home__car-number">{{ car.speed }}</h2>
+                        <h3 class="home__car-name">SPEED</h3>
                     </div>
 
                     <div class="home__car-data">
                         <div class="home__car-icon">
                             <i class="ri-dashboard-3-line"></i>
                         </div>
-                        <h2 class="home__car-number">873</h2>
+                        <h2 class="home__car-number">{{ car.acceleration }}</h2>
                         <h3 class="home__car-name">MILEAGE</h3>
                     </div>
 
@@ -104,15 +105,15 @@
                         <div class="home__car-icon">
                             <i class="ri-flashlight-fill"></i>
                         </div>
-                        <h2 class="home__car-number">94%</h2>
-                        <h3 class="home__car-name">BATTERY</h3>
+                        <h2 class="home__car-number">{{ car.autonomy }}</h2>
+                        <h3 class="home__car-name">BATTERY (Km)</h3>
                     </div>
                 </div>
 
                 <a href="#about" class="home__button">START</a>
-            </div>
+            </div>94
         </section>
-
+{% endfor %}
         <!--==================== ABOUT ====================-->
         <section class="about section" id="about">
             <div class="about__container container grid">
@@ -352,80 +353,22 @@
                 </ul>
 
                 <div class="featured__content grid">
+                {% for car in allCars %}
                     <article class="featured__card mix tesla">
                         <div class="shape shape__smaller"></div>
 
-                        <h1 class="featured__title">Tesla</h1>
-                        <h3 class="featured__subtitle">Model X</h3>
+                        <h1 class="featured__title">{{ car.brand }}</h1>
+                        <h3 class="featured__subtitle">{{ car.model }}</h3>
 
-                        <img src="{{ asset('build/images/featured1.png') }}" alt="" class="featured__img">
+                        <img src="{{ asset('build/images/' ~ car.leftSideImage) }}" alt="" class="featured__img">
 
-                        <h3 class="featured__price">$98,900</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-
-                    <article class="featured__card mix tesla">
-                        <div class="shape shape__smaller"></div>
-
-                        <h1 class="featured__title">Tesla</h1>
-                        <h3 class="featured__subtitle">Model 3</h3>
-
-                        <img src="{{ asset('build/images/featured2.png') }}" alt="" class="featured__img">
-
-                        <h3 class="featured__price">$45,900</h3>
+                        <h3 class="featured__price">${{ car.price }}</h3>
 
                         <button class="button featured__button">
                             <i class="ri-shopping-bag-2-line"></i>
                         </button>
                     </article>
-
-                    <article class="featured__card mix audi">
-                        <div class="shape shape__smaller"></div>
-
-                        <h1 class="featured__title">Audi</h1>
-                        <h3 class="featured__subtitle">E-tron</h3>
-
-                        <img src="{{ asset('build/images/featured3.png') }}" alt="" class="featured__img">
-
-                        <h3 class="featured__price">$175,900</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-
-                    <article class="featured__card mix porsche">
-                        <div class="shape shape__smaller"></div>
-
-                        <h1 class="featured__title">Porsche</h1>
-                        <h3 class="featured__subtitle">Boxster 987</h3>
-
-                        <img src="{{ asset('build/images/featured4.png') }}" alt="" class="featured__img">
-
-                        <h3 class="featured__price">$126,900</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-
-                    <article class="featured__card mix porsche">
-                        <div class="shape shape__smaller"></div>
-
-                        <h1 class="featured__title">Porsche</h1>
-                        <h3 class="featured__subtitle">Panamera</h3>
-
-                        <img src="{{ asset('build/images/featured5.png') }}" alt="" class="featured__img">
-
-                        <h3 class="featured__price">$126,900</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
+                {% endfor %}
                 </div>
             </div>
         </section>

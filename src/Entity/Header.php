@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\HeaderRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Car;
 
 #[ORM\Entity(repositoryClass: HeaderRepository::class)]
 class Header
@@ -18,6 +19,7 @@ class Header
 
     #[ORM\OneToOne(inversedBy: 'header', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
+
     private ?Car $car = null;
 
     public function getId(): ?int

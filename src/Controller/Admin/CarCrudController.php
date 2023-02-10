@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class CarCrudController extends AbstractCrudController
 {
@@ -22,7 +23,7 @@ class CarCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),     
-            TextField::new('brand'),  
+            AssociationField::new('brand'),  
             TextField::new('model'),   
             BooleanField::new('isHeader'),       
             TextField::new('model'),                   
@@ -40,7 +41,8 @@ class CarCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern('[randomhash].[extension]'),
             IntegerField::new('speed'),   
             NumberField::new('acceleration'),  
-            IntegerField::new('autonomy')
+            IntegerField::new('autonomy'),
+            NumberField::new('price'),
         ];
     }
 

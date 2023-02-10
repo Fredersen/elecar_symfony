@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Car;
 use App\Entity\Header;
+use App\Entity\Brand;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
 class DashboardController extends AbstractDashboardController
@@ -44,5 +45,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Car', 'fas fa-car', Car::class);
         yield MenuItem::linkToCrud('Header', 'fas fa-pen', Header::class);
+        yield MenuItem::linkToCrud('Brand', 'fas fa-pen', Brand::class);
     }
 }

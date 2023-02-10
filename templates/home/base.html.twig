@@ -74,7 +74,7 @@
                     </h1>
                     <!-- Ceci est un test -->
                     <h2 class="home__subtitle">
-                        {{ car.brand }} {{ car.model }}
+                        {{ car.brand.name }} {{ car.model }}
                     </h2>
 
                     <h3 class="home__elec">
@@ -356,8 +356,8 @@
                 {% for car in allCars %}
                     <article class="featured__card mix tesla">
                         <div class="shape shape__smaller"></div>
-
-                        <h1 class="featured__title">{{ car.brand }}</h1>
+                        {% dump(car) %}
+                        <h1 class="featured__title">{{ car.brand.name }}</h1>
                         <h3 class="featured__subtitle">{{ car.model }}</h3>
 
                         <img src="{{ asset('build/images/' ~ car.leftSideImage) }}" alt="" class="featured__img">

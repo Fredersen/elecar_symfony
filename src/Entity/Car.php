@@ -17,9 +17,6 @@ class Car
     private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $brand = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
     private ?string $model = null;
 
     #[ORM\Column]
@@ -49,6 +46,9 @@ class Car
     #[ORM\OneToOne(mappedBy: 'car', cascade: ['persist', 'remove'])]
     private ?Header $header = null;
 
+    #[ORM\ManyToOne(inversedBy: 'car')]
+    private ?Brand $brand = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,17 +66,6 @@ class Car
         return $this;
     }
 
-    public function getBrand(): ?string
-    {
-        return $this->brand;
-    }
-
-    public function setBrand(?string $brand): self
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
 
     public function getModel(): ?string
     {
@@ -206,5 +195,17 @@ class Car
     public function __toString()
     {
         return $this->getName() . '_' . $this->getModel();
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): self
+    {
+        $this->brand = $brand;
+
+        return $this;
     }
 }

@@ -337,11 +337,13 @@
                         </a>
                     </li>
                     {% for brand in brands %}
-                    <li>
-                        <a class="featured__item" href="{{ path('app_filter', { 'brand': brand.name }) }}">
-                            <span>{{ brand.name }}</span>
-                        </a>
-                    </li>
+                        {% if brand.car|length > 0 %}
+                        <li>
+                            <a class="featured__item" href="{{ path('app_filter', { 'brand': brand.name }) }}">
+                                <span>{{ brand.name }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
 

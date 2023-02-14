@@ -33,15 +33,7 @@ class EasyAdminSubscriber implements  EventSubscriberInterface
             return;
         }
 
-        $cars = $this->carRepository->findAll();
-
-        foreach ($cars as $car) {
-            $car->setIsHeader(false);
-            $this->carRepository->save($car, true);
-        }
-
-        $entity->setIsHeader(true);
-        $this->carRepository->save($entity, true);
+        $this->modifyIsHeader($entity);
     }
 
     public function setIsHeaderUpdated(AfterEntityUpdatedEvent $event)
@@ -52,6 +44,11 @@ class EasyAdminSubscriber implements  EventSubscriberInterface
             return;
         }
 
+        $this->modifyIsHeader($entity);
+    }
+
+    private function modifyIsHeader(Car $entity)
+    {
         $cars = $this->carRepository->findAll();
 
         foreach ($cars as $car) {

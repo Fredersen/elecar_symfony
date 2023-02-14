@@ -5,7 +5,7 @@ Array.prototype.forEach.call(filter, function(el) {
     el.addEventListener('click', fetchCars);
 });
 
-function fetchCars(event) {  // Do stuff here
+function fetchCars(event) {// Do stuff here
     event.preventDefault();
     const link = event.currentTarget;
     const href = link.getAttribute('href');

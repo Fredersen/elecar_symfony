@@ -1,5 +1,5 @@
 console.log("main")
-import Swiper from 'swiper';
+import mixitup from './mixitup.min';
 
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),

@@ -14,6 +14,11 @@ Encore
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]'
+    })
+
     /*
      * ENTRY CONFIG
      *
@@ -21,6 +26,11 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('ajax', './assets/js/ajax.js')
+    .addEntry('main', './assets/js/main.js')
+    .addEntry('mixitup', './assets/js/mixitup.min.js')
+    .addEntry('scrollreveal', './assets/js/scrollreveal.min.js')
+    .addEntry('swiper-bundle', './assets/js/swiper-bundle.min.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

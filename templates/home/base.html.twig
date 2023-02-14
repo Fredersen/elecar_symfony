@@ -12,6 +12,7 @@
     {% endblock %}
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('ajax') }}
         {{ encore_entry_script_tags('scrollreveal') }}
         {{ encore_entry_script_tags('swiper-bundle') }}
         {{ encore_entry_script_tags('mixitup') }}
@@ -331,29 +332,23 @@
             <div class="featured__container container">
                 <ul class="featured__filters">
                     <li>
-                        <button class="featured__item active-featured" data-filter="all">
+                        <a class="featured__item active-featured" data-filter="all" href="{{ path('app_filter') }}">
                             <span>All</span>
-                        </button>
+                        </a>
                     </li>
-                    <li>
-                        <button class="featured__item" data-filter=".tesla">
-                            <img src="{{ asset('build/images/logo3.png') }}" alt="">
-                        </button>
-                    </li>
-                    <li>
-                        <button class="featured__item" data-filter=".audi">
-                            <img src="{{ asset('build/images/logo2.png') }}" alt="">
-                        </button>
-                    </li>
-                    <li>
-                        <button class="featured__item" data-filter=".porsche">
-                            <img src="{{ asset('build/images/logo1.png') }}" alt="">
-                        </button>
-                    </li>
+                    {% for brand in brands %}
+                        {% if brand.car|length > 0 %}
+                        <li>
+                            <a class="featured__item" href="{{ path('app_filter', { 'brand': brand.name }) }}">
+                                <span>{{ brand.name }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
 
-                <div class="featured__content grid">
-                {% for car in allCars %}
+                <div class="featured__content grid" id="featured__content">
+                {% for car in filteredCars %}
                     <article class="featured__card mix tesla">
                         <div class="shape shape__smaller"></div>
                         <h1 class="featured__title">{{ car.brand.name }}</h1>

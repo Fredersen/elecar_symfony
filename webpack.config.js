@@ -26,6 +26,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('ajax', './assets/js/ajax.js')
     .addEntry('main', './assets/js/main.js')
     .addEntry('mixitup', './assets/js/mixitup.min.js')
     .addEntry('scrollreveal', './assets/js/scrollreveal.min.js')

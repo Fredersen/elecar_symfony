@@ -13,6 +13,11 @@ Toute les commandes comportant symfony peuvent être remplacés par php bin/cons
 # Test de fonctionnement
 - aller sur la route /healthcheck pour vérifier le fonctionnement du projet
 
+
+# Construire le projet pour déploiement serveur
+- yarn build
+- pointer sur index.php dans le dossier public
+
 # Git Workflow
 Lorsque vous travaillez sur une branche il faut :
 

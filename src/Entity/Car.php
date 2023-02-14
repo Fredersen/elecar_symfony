@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
@@ -11,36 +12,47 @@ class Car
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['car:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['car:read'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['car:read'])]
     private ?string $model = null;
 
     #[ORM\Column]
+    #[Groups(['car:read'])]
     private ?bool $isHeader = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['car:read'])]
     private ?string $frontImage = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['car:read'])]
     private ?string $leftSideImage = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['car:read'])]
     private ?string $rightSideImage = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['car:read'])]
     private ?int $speed = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['car:read'])]
     private ?float $acceleration = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['car:read'])]
     private ?int $autonomy = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['car:read'])]
     private ?int $price = null;
 
     #[ORM\OneToOne(mappedBy: 'car', cascade: ['persist', 'remove'])]

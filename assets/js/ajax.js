@@ -10,6 +10,11 @@ function fetchCars(event) {// Do stuff here
     const link = event.currentTarget;
     const href = link.getAttribute('href');
 
+    Array.prototype.forEach.call(filter, function(el) {
+        el.classList.remove('active-featured');
+    });
+    event.currentTarget.classList.add('active-featured');
+
     try {
         fetch(href)
             .then(response => response.json())
